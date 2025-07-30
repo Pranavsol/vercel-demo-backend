@@ -1,15 +1,19 @@
 // server.js
 const express = require("express");
-const app = express();
 const serverless = require("serverless-http");
+const cors = require("cors");
 
-// Middleware
+const app = express();
+
 app.use(cors());
 app.use(express.json());
 
 // Hardcoded credentials
-const allowedEmail = "admin@example.com";
-const allowedPassword = "1234";
+const allowedEmail = "p@gmail.com";
+const allowedPassword = "123456";
+
+// Prefix all routes with /.netlify/functions/server if testing locally (e.g., Netlify)
+// Vercel uses /api by default when using vercel.json routing
 
 app.post("/login", (req, res) => {
   const { email, password } = req.body;
