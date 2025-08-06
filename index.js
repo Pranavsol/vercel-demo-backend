@@ -12,6 +12,17 @@ app.use(express.json());
 const allowedEmail = "p@gmail.com";
 const allowedPassword = "123456";
 
+const users = [
+  {
+    name: "Pranav",
+    rollno: "343",
+  },
+  {
+    name: "Devarsh",
+    rollno: "051",
+  },
+];
+
 // Prefix all routes with /.netlify/functions/server if testing locally (e.g., Netlify)
 // Vercel uses /api by default when using vercel.json routing
 
@@ -22,6 +33,14 @@ app.post("/login", (req, res) => {
     return res.status(200).json({ message: "Login successful" });
   } else {
     return res.status(401).json({ message: "Invalid credentials" });
+  }
+});
+
+app.get("/users/data", (req, res) => {
+  if (req) {
+    return res.status(200).json(users);
+  } else {
+    return res.status(401).json({ message: "Somethang aint right" });
   }
 });
 
