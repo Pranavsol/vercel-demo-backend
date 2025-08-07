@@ -21,6 +21,10 @@ const users = [
     name: "Devarsh",
     rollno: "051",
   },
+  {
+    name: "Shrey",
+    rollno: "335",
+  },
 ];
 
 // Prefix all routes with /.netlify/functions/server if testing locally (e.g., Netlify)
